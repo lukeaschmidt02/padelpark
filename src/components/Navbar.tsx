@@ -44,7 +44,7 @@ export function Navbar() {
                     color: 'var(--color-primary)',
                     letterSpacing: '-0.05em'
                 }}>
-                    PADEL<span style={{ color: 'white' }}>X</span>
+                    PADEL CANTINA
                 </Link>
 
                 {/* Desktop Links */}

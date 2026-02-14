@@ -39,7 +39,7 @@ function PadelRacket({ position, color, rotation }: { position: [number, number,
 function PadelBall({ position }: { position: [number, number, number] }) {
     const meshRef = useRef<THREE.Mesh>(null!);
 
-    useFrame((state) => {
+    useFrame(() => {
         meshRef.current.rotation.x += 0.02;
         meshRef.current.rotation.y += 0.03;
     });

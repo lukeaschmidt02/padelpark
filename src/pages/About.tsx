@@ -13,7 +13,7 @@ export function About() {
                 animate={{ opacity: 1, y: 0 }}
                 style={{ fontSize: 'var(--font-size-xl)', marginBottom: 'var(--spacing-md)', textAlign: 'center' }}
             >
-                About PADEL<span style={{ color: 'var(--color-primary)' }}>X</span>
+                About Padel <span style={{ color: 'var(--color-primary)' }}>Cantina</span>
             </motion.h1>
 
             <motion.div
@@ -23,7 +23,7 @@ export function About() {
                 style={{ lineHeight: '1.8', fontSize: '1.1rem', color: 'var(--color-text-dim)' }}
             >
                 <p style={{ marginBottom: '1.5rem' }}>
-                    Born from a passion for the world's fastest-growing sport, PADELX is more than just a place to play—it's a community hub.
+                    Born from a passion for the world's fastest-growing sport, Padel Cantina is more than just a place to play—it's a community hub.
                 </p>
                 <p style={{ marginBottom: '1.5rem' }}>
                     We believe in the power of social connection through sport. Our state-of-the-art facility features panoramic court walls, pro-grade turf, and acoustic dampening to ensure the perfect game every time.

@@ -19,7 +19,7 @@ export function Footer() {
                 {/* Brand */}
                 <div>
                     <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', letterSpacing: '-0.05em' }}>
-                        PADEL<span style={{ color: 'var(--color-primary)' }}>X</span>
+                        Padel Cantina
                     </h2>
                     <p style={{ color: 'var(--color-text-dim)', lineHeight: '1.6' }}>
                         The premier social padel experience. <br />
@@ -47,7 +47,7 @@ export function Footer() {
                         <a href="#" style={{ color: 'white', transition: 'color 0.2s' }}><Mail size={24} /></a>
                     </div>
                     <p style={{ marginTop: '1rem', color: 'var(--color-text-dim)', fontSize: '0.9rem' }}>
-                        hello@padelx.com
+                        hello@padelcantina.com
                     </p>
                 </div>
             </div>
@@ -60,7 +60,7 @@ export function Footer() {
                 color: 'var(--color-text-dim)',
                 fontSize: '0.875rem'
             }}>
-                © {new Date().getFullYear()} PADELX. All rights reserved.
+                © {new Date().getFullYear()} Padel Cantina. All rights reserved.
             </div>
         </footer>
     );

@@ -24,7 +24,7 @@ export function Gallery() {
                 style={{ textAlign: 'center', marginBottom: 'var(--spacing-lg)' }}
             >
                 <h2 style={{ fontSize: 'var(--font-size-xl)', marginBottom: 'var(--spacing-sm)' }}>
-                    Experience <span style={{ color: 'var(--color-primary)' }}>PADELX</span>
+                    Experience <span style={{ color: 'var(--color-primary)' }}>Padel Cantina</span>
                 </h2>
                 <p style={{ color: 'var(--color-text-dim)', maxWidth: '600px', margin: '0 auto' }}>
                     Immerse yourself in our world-class facilities designed for peak performance and social connection.

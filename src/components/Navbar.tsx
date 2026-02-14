@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PadelLogo from '../assets/Padel Cantina Logo.png';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Trophy, Coffee, Info, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -38,13 +39,8 @@ export function Navbar() {
                 border: '1px solid rgba(255, 255, 255, 0.1)'
             }}>
                 {/* Logo */}
-                <Link to="/" style={{
-                    fontSize: '1.5rem',
-                    fontWeight: 'bold',
-                    color: 'var(--color-primary)',
-                    letterSpacing: '-0.05em'
-                }}>
-                    PADEL CANTINA
+                <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+                    <img src={PadelLogo} alt="Padel Cantina" style={{ height: '80px', objectFit: 'contain' }} />
                 </Link>
 
                 {/* Desktop Links */}

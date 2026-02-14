@@ -1,9 +1,9 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Float, Cylinder, Sphere, RoundedBox } from '@react-three/drei';
+import { OrbitControls, Float, Cylinder, Sphere, RoundedBox, Outlines } from '@react-three/drei';
 import { useRef } from 'react';
 import * as THREE from 'three';
 
-function PadelRacket({ position, color, rotation }: { position: [number, number, number], color: string, rotation: [number, number, number] }) {
+function PadelRacket({ position, color, rotation, highlightColor }: { position: [number, number, number], color: string, rotation: [number, number, number], highlightColor: string }) {
     const groupRef = useRef<THREE.Group>(null!);
 
     useFrame((state) => {
@@ -16,11 +16,14 @@ function PadelRacket({ position, color, rotation }: { position: [number, number,
         <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
             <group ref={groupRef} position={position} rotation={rotation} scale={0.5}>
                 {/* Handle */}
-                <Cylinder args={[0.3, 0.3, 2, 32]} position={[0, -2.5, 0]} material-color="#111" />
+                <Cylinder args={[0.3, 0.3, 2, 32]} position={[0, -2.5, 0]} material-color="#333">
+                    <Outlines thickness={0.1} color={highlightColor} screenspace={false} opacity={1} transparent={false} angle={0} toneMapped={false} />
+                </Cylinder>
 
                 {/* Face */}
                 <RoundedBox args={[3.5, 4.5, 0.4]} radius={0.5} position={[0, 1, 0]}>
                     <meshStandardMaterial color={color} roughness={0.3} metalness={0.8} />
+                    <Outlines thickness={0.1} color={highlightColor} screenspace={false} opacity={1} transparent={false} angle={0} toneMapped={false} />
                 </RoundedBox>
 
                 {/* Holes (represented as dark spots for simplicity/performance) */}
@@ -49,6 +52,7 @@ function PadelBall({ position }: { position: [number, number, number] }) {
             <Sphere ref={meshRef} args={[0.4, 32, 32]} position={position}>
                 {/* Fuzzy yellow material */}
                 <meshStandardMaterial color="#ccff00" roughness={1} />
+                <Outlines thickness={0.02} color="#ccff00" screenspace={false} opacity={0.5} transparent />
             </Sphere>
         </Float>
     );
@@ -62,8 +66,8 @@ export function Scene3D() {
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} color="#ccff00" />
                 <pointLight position={[-10, -10, -10]} intensity={1} color="#00e5ff" />
 
-                <PadelRacket position={[-2, 0, 0]} color="#1a1a1a" rotation={[0, 0.2, -0.2]} />
-                <PadelRacket position={[2.5, 1, -2]} color="#1a1a1a" rotation={[0, -0.3, 0.2]} />
+                <PadelRacket position={[-2, 0, 0]} color="#1a1a1a" rotation={[0, 0.2, -0.2]} highlightColor="#00e5ff" />
+                <PadelRacket position={[2.5, 1, -2]} color="#1a1a1a" rotation={[0, -0.3, 0.2]} highlightColor="#ccff00" />
 
                 <PadelBall position={[0.5, 0.5, 2]} />
                 <PadelBall position={[-1.5, -1.5, -1]} />

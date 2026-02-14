@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import PadelLogo from '../assets/Padel Cantina Logo copy.png';
 
 export function Hero() {
     return (
@@ -20,6 +21,18 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
             >
+                <img
+                    src={PadelLogo}
+                    alt="Padel Cantina"
+                    style={{
+                        width: '100%',
+                        maxWidth: '600px',
+                        height: 'auto',
+                        objectFit: 'contain',
+                        marginBottom: '1rem',
+                        marginTop: '1rem',
+                    }}
+                />
                 <h1 style={{
                     fontSize: 'var(--font-size-xxl)',
                     fontWeight: 900,

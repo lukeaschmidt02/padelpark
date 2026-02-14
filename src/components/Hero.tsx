@@ -16,23 +16,45 @@ export function Hero() {
             paddingTop: '120px', // Prevent navbar clipping
             textAlign: 'center',
         }}>
+            <div style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                padding: '3rem 2rem',
+                borderRadius: '30px',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                maxWidth: '800px',
+                width: '100%',
+                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+            }}>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: 'easeOut' }}
+                    style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                >
+                    <img
+                        src={PadelLogo}
+                        alt="Padel Cantina"
+                        style={{
+                            width: '100%',
+                            maxWidth: '600px',
+                            height: 'auto',
+                            objectFit: 'contain',
+                            marginBottom: '1rem',
+                            marginTop: '1rem',
+                        }}
+                    /></motion.div>
+            </div>
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
+                style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
             >
-                <img
-                    src={PadelLogo}
-                    alt="Padel Cantina"
-                    style={{
-                        width: '100%',
-                        maxWidth: '600px',
-                        height: 'auto',
-                        objectFit: 'contain',
-                        marginBottom: '1rem',
-                        marginTop: '1rem',
-                    }}
-                />
                 <h1 style={{
                     fontSize: 'var(--font-size-xxl)',
                     fontWeight: 900,
@@ -44,12 +66,14 @@ export function Hero() {
                     The Future of <br />
                     <span style={{ color: 'var(--color-primary)', textShadow: '0 0 20px var(--color-primary-glow)' }}>Padel</span> is Here
                 </h1>
+
             </motion.div>
 
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+                style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
             >
                 <p style={{
                     fontSize: 'var(--font-size-lg)',
@@ -80,6 +104,7 @@ export function Hero() {
                     Join the Waitlist <ArrowRight size={20} />
                 </a>
             </motion.div>
+
         </section>
     );
 }

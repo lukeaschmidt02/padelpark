@@ -7,8 +7,22 @@ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwjpHmY4d-GMZ
 
 export function RegisterInterest() {
     const [email, setEmail] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [interests, setInterests] = useState<string[]>([]);
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'duplicate'>('idle');
     const [message, setMessage] = useState('');
+
+    const interestOptions = ["Frequent Player", "Executive/Corporate Member", "Just Curious"];
+
+    const isFormValid = email.trim() !== '' && zipCode.trim() !== '' && interests.length > 0;
+
+    const toggleInterest = (interest: string) => {
+        setInterests((prev) => 
+            prev.includes(interest) 
+                ? prev.filter(i => i !== interest)
+                : [...prev, interest]
+        );
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -25,6 +39,8 @@ export function RegisterInterest() {
         try {
             const formData = new FormData();
             formData.append('Email', email);
+            formData.append('Zip Code', zipCode);
+            formData.append('Interests', interests.join(', '));
 
             const response = await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
@@ -40,6 +56,8 @@ export function RegisterInterest() {
             if (data.result === 'success') {
                 setStatus('success');
                 setEmail('');
+                setZipCode('');
+                setInterests([]);
             } else if (data.result === 'error' && data.message === 'Email already exists') {
                 setStatus('duplicate');
                 setMessage('This email is already on the list!');
@@ -93,8 +111,10 @@ export function RegisterInterest() {
                         Thanks! We'll be in touch soon.
                     </motion.div>
                 ) : (
-                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-                        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', width: '100%' }}>
+                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
+                        
+                        {/* Inputs Row */}
+                        <div style={{ display: 'flex', gap: '1rem', width: '100%', flexDirection: 'column' }}>
                             <input
                                 type="email"
                                 placeholder="Enter your email"
@@ -109,37 +129,100 @@ export function RegisterInterest() {
                                     backgroundColor: 'var(--color-bg)',
                                     color: 'white',
                                     fontSize: '1rem',
-                                    flex: '1',
-                                    minWidth: '250px',
-                                    maxWidth: '400px',
+                                    width: '100%',
                                     outline: 'none',
                                     opacity: status === 'loading' ? 0.7 : 1,
+                                    boxSizing: 'border-box'
                                 }}
                                 onFocus={(e) => e.target.style.borderColor = 'var(--color-primary)'}
                                 onBlur={(e) => e.target.style.borderColor = '#333'}
                             />
-                            <button
-                                type="submit"
+
+                            <input
+                                type="text"
+                                placeholder="Zip Code"
+                                value={zipCode}
+                                onChange={(e) => setZipCode(e.target.value)}
+                                required
                                 disabled={status === 'loading'}
                                 style={{
-                                    backgroundColor: 'var(--color-text)',
-                                    color: 'var(--color-bg)',
-                                    padding: '1rem 2rem',
+                                    padding: '1rem 1.5rem',
                                     borderRadius: 'var(--radius-full)',
-                                    fontWeight: 'bold',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.5rem',
-                                    transition: 'all 0.2s',
+                                    border: '1px solid #333',
+                                    backgroundColor: 'var(--color-bg)',
+                                    color: 'white',
+                                    fontSize: '1rem',
+                                    width: '100%',
+                                    outline: 'none',
                                     opacity: status === 'loading' ? 0.7 : 1,
-                                    cursor: status === 'loading' ? 'wait' : 'pointer',
+                                    boxSizing: 'border-box'
                                 }}
-                                onMouseEnter={(e) => !status.includes('loading') && (e.currentTarget.style.backgroundColor = 'var(--color-primary)')}
-                                onMouseLeave={(e) => !status.includes('loading') && (e.currentTarget.style.backgroundColor = 'var(--color-text)')}
-                            >
-                                {status === 'loading' ? 'Sending...' : 'Sign Up'} <Send size={18} />
-                            </button>
+                                onFocus={(e) => e.target.style.borderColor = 'var(--color-primary)'}
+                                onBlur={(e) => e.target.style.borderColor = '#333'}
+                            />
                         </div>
+
+                        {/* Interests Selection */}
+                        <div style={{ width: '100%' }}>
+                            <p style={{ color: 'var(--color-text-dim)', marginBottom: '0.75rem', fontSize: '0.9rem', textAlign: 'center' }}>
+                                What best describes your interest? (Select all that apply)
+                            </p>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center' }}>
+                                {interestOptions.map(option => {
+                                    const isSelected = interests.includes(option);
+                                    return (
+                                        <button
+                                            key={option}
+                                            type="button"
+                                            onClick={() => toggleInterest(option)}
+                                            disabled={status === 'loading'}
+                                            style={{
+                                                padding: '0.5rem 1rem',
+                                                borderRadius: 'var(--radius-full)',
+                                                border: `1px solid ${isSelected ? 'var(--color-primary)' : '#333'}`,
+                                                backgroundColor: isSelected ? 'var(--color-primary)' : 'transparent',
+                                                color: isSelected ? 'black' : 'var(--color-text-dim)',
+                                                cursor: status === 'loading' ? 'wait' : 'pointer',
+                                                transition: 'all 0.2s',
+                                                fontSize: '0.9rem',
+                                                fontWeight: isSelected ? 'bold' : 'normal',
+                                            }}
+                                        >
+                                            {option}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            disabled={status === 'loading' || !isFormValid}
+                            style={{
+                                backgroundColor: (!isFormValid && status !== 'loading') ? '#333' : 'var(--color-text)',
+                                color: (!isFormValid && status !== 'loading') ? '#888' : 'var(--color-bg)',
+                                padding: '1rem 2rem',
+                                borderRadius: 'var(--radius-full)',
+                                fontWeight: 'bold',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                gap: '0.5rem',
+                                width: '100%',
+                                transition: 'all 0.2s',
+                                opacity: status === 'loading' ? 0.7 : (!isFormValid ? 0.5 : 1),
+                                cursor: status === 'loading' ? 'wait' : (!isFormValid ? 'not-allowed' : 'pointer'),
+                                marginTop: '0.5rem'
+                            }}
+                            onMouseEnter={(e) => {
+                                if (isFormValid && status !== 'loading') e.currentTarget.style.backgroundColor = 'var(--color-primary)';
+                            }}
+                            onMouseLeave={(e) => {
+                                if (isFormValid && status !== 'loading') e.currentTarget.style.backgroundColor = 'var(--color-text)';
+                            }}
+                        >
+                            {status === 'loading' ? 'Sending...' : 'Sign Up'} <Send size={18} />
+                        </button>
 
                         {(status === 'error' || status === 'duplicate') && (
                             <motion.div

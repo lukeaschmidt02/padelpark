@@ -1,9 +1,9 @@
 {
-  "name": "padel-cantina",
+  "name": "padel-park",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://lukeaschmidt02.github.io/padelcantina/",
+  "homepage": "https://lukeaschmidt02.github.io/padelpark/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

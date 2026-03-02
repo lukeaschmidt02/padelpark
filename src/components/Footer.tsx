@@ -1,5 +1,5 @@
 import { Instagram, Facebook, Twitter, Mail } from 'lucide-react';
-import PadelLogo from '../assets/Padel Cantina Logo.png';
+import PadelLogo from '../assets/Padel Park Logo.png';
 import { Link } from 'react-router-dom';
 
 export function Footer() {
@@ -20,7 +20,7 @@ export function Footer() {
                 {/* Brand */}
                 <div>
                     <Link to="/" style={{ display: 'inline-block', marginBottom: '1rem' }}>
-                        <img src={PadelLogo} alt="Padel Cantina" style={{ height: '50px', objectFit: 'contain' }} />
+                        <img src={PadelLogo} alt="Padel Park" style={{ height: '50px', objectFit: 'contain' }} />
                     </Link>
                     <p style={{ color: 'var(--color-text-dim)', lineHeight: '1.6' }}>
                         The premier social padel experience. <br />
@@ -48,7 +48,7 @@ export function Footer() {
                         <a href="#" style={{ color: 'white', transition: 'color 0.2s' }}><Mail size={24} /></a>
                     </div>
                     <p style={{ marginTop: '1rem', color: 'var(--color-text-dim)', fontSize: '0.9rem' }}>
-                        hello@padelcantina.com
+                        hello@padelpark.com
                     </p>
                 </div>
             </div>
@@ -61,7 +61,7 @@ export function Footer() {
                 color: 'var(--color-text-dim)',
                 fontSize: '0.875rem'
             }}>
-                © {new Date().getFullYear()} Padel Cantina. All rights reserved.
+                © {new Date().getFullYear()} Padel Park. All rights reserved.
             </div>
         </footer>
     );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PadelLogo from '../assets/Padel Cantina Logo.png';
+import PadelLogo from '../assets/Padel Park Logo.png';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Trophy, Coffee, Info, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -40,7 +40,7 @@ export function Navbar() {
             }}>
                 {/* Logo */}
                 <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
-                    <img src={PadelLogo} alt="Padel Cantina" style={{ height: '80px', objectFit: 'contain' }} />
+                    <img src={PadelLogo} alt="Padel Park" style={{ height: '100px', objectFit: 'contain' }} />
                 </Link>
 
                 {/* Desktop Links */}

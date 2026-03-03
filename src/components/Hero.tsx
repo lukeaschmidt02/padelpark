@@ -82,7 +82,7 @@ export function Hero() {
                     maxWidth: '600px',
                 }}>
                     Experience the ultimate social sport in a premium facility designed for players, by players.
-                    Coming soon to the RDU Triangle Area.
+                    Coming soon to the Southern Wake County Area.
                 </p>
 
                 <a href="#register" style={{

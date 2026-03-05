@@ -39,8 +39,20 @@ export function Navbar() {
                 border: '1px solid rgba(255, 255, 255, 0.1)'
             }}>
                 {/* Logo */}
-                <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
-                    <img src={PadelLogo} alt="Padel Park" style={{ height: '100px', objectFit: 'contain' }} />
+                <Link to="/" style={{ 
+                    display: 'flex', 
+                    alignItems: 'center',
+                    position: 'relative',
+                    padding: '0.5rem',
+                    borderRadius: 'var(--radius-md)',
+                    background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%)',
+                }}>
+                    <img src={PadelLogo} alt="Padel Park" style={{ 
+                        height: '100px', 
+                        objectFit: 'contain',
+                        filter: 'drop-shadow(0 0 12px rgba(255, 255, 255, 0.4)) brightness(1.15) contrast(1.1)',
+                        transition: 'filter 0.3s ease'
+                    }} />
                 </Link>
 
                 {/* Desktop Links */}

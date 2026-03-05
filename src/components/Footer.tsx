@@ -19,8 +19,19 @@ export function Footer() {
             }}>
                 {/* Brand */}
                 <div>
-                    <Link to="/" style={{ display: 'inline-block', marginBottom: '1rem' }}>
-                        <img src={PadelLogo} alt="Padel Park" style={{ height: '50px', objectFit: 'contain' }} />
+                    <Link to="/" style={{ 
+                        display: 'inline-block', 
+                        marginBottom: '1rem',
+                        padding: '0.5rem',
+                        margin: '-0.5rem -0.5rem 0.5rem -0.5rem',
+                        borderRadius: 'var(--radius-md)',
+                        background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, transparent 70%)',
+                    }}>
+                        <img src={PadelLogo} alt="Padel Park" style={{ 
+                            height: '50px', 
+                            objectFit: 'contain',
+                            filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.35)) brightness(1.15)'
+                        }} />
                     </Link>
                     <p style={{ color: 'var(--color-text-dim)', lineHeight: '1.6' }}>
                         The premier social padel experience. <br />

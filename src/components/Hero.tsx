@@ -46,6 +46,7 @@ export function Hero() {
                             objectFit: 'contain',
                             marginBottom: '1rem',
                             marginTop: '1rem',
+                            filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 40px rgba(0, 150, 255, 0.2)) brightness(1.2) contrast(1.1)',
                         }}
                     /></motion.div>
             </div>

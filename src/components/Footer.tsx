@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Twitter, Mail } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
 import PadelLogo from '../assets/Padel Park Logo.png';
 import { Link } from 'react-router-dom';
 
@@ -33,7 +33,7 @@ export function Footer() {
                     <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'white' }}>Explore</h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                         <Link to="/play" style={{ color: 'var(--color-text-dim)' }}>Book a Court</Link>
-                        <Link to="/eat-drink" style={{ color: 'var(--color-text-dim)' }}>Eat & Drink</Link>
+                        <Link to="/menu" style={{ color: 'var(--color-text-dim)' }}>Menu</Link>
                         <Link to="/about" style={{ color: 'var(--color-text-dim)' }}>About Us</Link>
                     </div>
                 </div>
@@ -42,13 +42,21 @@ export function Footer() {
                 <div>
                     <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'white' }}>Connect</h3>
                     <div style={{ display: 'flex', gap: '1rem' }}>
-                        <a href="#" style={{ color: 'white', transition: 'color 0.2s' }}><Instagram size={24} /></a>
-                        <a href="#" style={{ color: 'white', transition: 'color 0.2s' }}><Facebook size={24} /></a>
-                        <a href="#" style={{ color: 'white', transition: 'color 0.2s' }}><Twitter size={24} /></a>
-                        <a href="#" style={{ color: 'white', transition: 'color 0.2s' }}><Mail size={24} /></a>
+                        <a href="https://instagram.com/wearepadelpark" target="_blank" rel="noopener noreferrer" style={{ color: 'white', transition: 'color 0.2s' }}><Instagram size={24} /></a>
+                        <a href="https://facebook.com/wearepadelpark" target="_blank" rel="noopener noreferrer" style={{ color: 'white', transition: 'color 0.2s' }}><Facebook size={24} /></a>
+                        <a href="https://tiktok.com/@wearepadelpark" target="_blank" rel="noopener noreferrer" style={{ color: 'white', transition: 'color 0.2s' }}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                            </svg>
+                        </a>
+                        <a href="https://x.com/wearepadelpark" target="_blank" rel="noopener noreferrer" style={{ color: 'white', transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
                     </div>
                     <p style={{ marginTop: '1rem', color: 'var(--color-text-dim)', fontSize: '0.9rem' }}>
-                        hello@padelpark.com
+                        info@wearepadelpark.com
                     </p>
                 </div>
             </div>

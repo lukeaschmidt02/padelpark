@@ -11,7 +11,7 @@ export function Navbar() {
     const links = [
         { name: 'Home', path: '/', icon: Home },
         { name: 'Play', path: '/play', icon: Trophy },
-        { name: 'Eat & Drink', path: '/eat-drink', icon: Coffee },
+        { name: 'Menu', path: '/menu', icon: Coffee },
         { name: 'About', path: '/about', icon: Info },
     ];
 

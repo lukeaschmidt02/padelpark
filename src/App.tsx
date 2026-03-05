@@ -6,7 +6,7 @@ import { Scene3D } from './components/Scene3D';
 import { RegisterInterest } from './components/RegisterInterest';
 import { Gallery } from './components/Gallery';
 import { Play } from './pages/Play';
-import { EatDrink } from './pages/EatDrink';
+import { Menu } from './pages/Menu';
 import { About } from './pages/About';
 
 function Home() {
@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/play" element={<Play />} />
-          <Route path="/eat-drink" element={<EatDrink />} />
+          <Route path="/menu" element={<Menu />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<Home />} />
         </Routes>
